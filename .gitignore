@@ -129,5 +129,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# reports
 package-lock.json
 cypress/videos
+cypress/results
+
+mochawesome-report
