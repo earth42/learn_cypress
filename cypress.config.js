@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   watchForFileChanges: false,
+  video: false,
 
   reporter: 'mochawesome',
   reporterOptions: {
