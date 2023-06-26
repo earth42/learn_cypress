@@ -12,10 +12,13 @@ module.exports = defineConfig({
     html: false,
     json: true,
   },
+
+  env: {
+    allureResultsPath: "allure-results",
+  },
   
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
       return require('@shelex/cypress-allure-plugin/writer')(on, config)
     },
   },
