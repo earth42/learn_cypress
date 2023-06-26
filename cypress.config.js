@@ -14,7 +14,7 @@ module.exports = defineConfig({
   },
 
   env: {
-    allureResultsPath: "allure-results",
+    allureResultsPath: "test-allure-results",
   },
   
   e2e: {
