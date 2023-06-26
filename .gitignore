@@ -133,5 +133,7 @@ dist
 package-lock.json
 cypress/videos
 cypress/results
+allure-results
+cypress/screenshots
 
 mochawesome-report
