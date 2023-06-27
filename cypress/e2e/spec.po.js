@@ -2,6 +2,7 @@ class TestSpec {
     constructor() {
         cy.intercept('https://api.robotemi.com/api/v2/webplatform/iam/generate-code')
             .as('qrCode')
+        cy.log('This is TestSpec po page')
     }
 
     clickLoginBtn() {
