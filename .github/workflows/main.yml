@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cypress-io/github-action@v5.8.2
-      
       - run: npm install
+      
+      - uses: cypress-io/github-action@v5.8.2
       - run: |
           npx cypress run --env allure=true
           npm run reportNow
