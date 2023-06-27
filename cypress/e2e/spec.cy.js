@@ -1,17 +1,14 @@
 /// <reference types="cypress" />
+import TestSpec from "./spec.po"
+
 
 describe('Check Center Login Status', () => {
   it('This is a test case', function() {
-      // wait for QR code to display
-      cy.intercept('https://api.robotemi.com/api/v2/webplatform/iam/generate-code')
-          .as('qrCode')
+      const loginPage = new TestSpec
 
       cy.visit('https://center.robotemi.com/')
-      cy.get('.header button')
-          .click()
 
-      cy.wait('@qrCode')
-          .its('response.statusCode')
-          .should('eq', 200)
+      loginPage.clickLoginBtn()
+      loginPage.waitQrCodeResOK
   })
 })
