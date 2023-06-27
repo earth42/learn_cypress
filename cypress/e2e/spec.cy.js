@@ -8,8 +8,9 @@ describe('Check Center Login Status', () => {
       cy.log('This is spec cy itself')
 
       cy.visit('https://center.robotemi.com/')
+      cy.get('.header').findcat('cat', catJump)
 
       loginPage.clickLoginBtn()
-      loginPage.waitQrCodeResOK
+      loginPage.waitQrCodeResOK()
   })
 })
