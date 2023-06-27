@@ -1,0 +1,13 @@
+name: learn cypress
+on: [push]
+jobs:
+  cypress-test-start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cypress-io/github-action@v5.8.2
+      
+      - run: npm install
+      - run: |
+          npx cypress run --env allure=true
+          npm run reportNow
