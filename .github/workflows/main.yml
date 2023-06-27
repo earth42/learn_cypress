@@ -15,25 +15,6 @@ jobs:
                 cat package.json
                 ls
 
-            - name: Check Cypress cache
-              run: |
-                  npx cypress cache path
-                  npx cypress cache list
-
-            - name: restore / cache the binary
-              id: cache-cypress
-              uses: actions/cache@v1
-              with:
-                  path: ~/.cache/Cypress
-                  key: >-
-                      cypress-cache-v2-${{ runner.os }}-${{ hashFiles('**/package.json')
-                      }}
-
-            - name: Install Cypress
-              run: |
-                  npx cypress install
-                  npx cypress cache list
-
             - name: Run Cypress
               continue-on-error: true
               run: npx cypress run --env allure=true
