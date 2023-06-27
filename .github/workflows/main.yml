@@ -40,10 +40,3 @@ jobs:
             
             - name: check test result
               run: ls
-
-            - name: Generate Allure Report
-              uses: simple-elf/allure-report-action@master
-              if: always()
-              with:
-                  allure_results: allure-results
-                  gh_pages: allure
