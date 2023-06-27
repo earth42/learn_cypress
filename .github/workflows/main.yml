@@ -13,6 +13,7 @@ jobs:
               run: | 
                 npm install
                 cat package.json
+                ls
 
             - name: Check Cypress cache
               run: |
@@ -37,13 +38,14 @@ jobs:
               continue-on-error: true
               run: npx cypress run --env allure=true
 
-            - name: Get Allure history
-              uses: actions/checkout@v3
-              if: always()
-              continue-on-error: true
-              with:
-                  ref: allure
-                  path: allure
+            # - name: Get Allure history
+            #   uses: actions/checkout@v3
+            #   if: always()
+            #   continue-on-error: true
+            #   with:
+            #       ref: allure
+            #       path: allure
+            
             - name: check test result
               run: ls
 

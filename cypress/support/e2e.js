@@ -20,6 +20,6 @@ import '@shelex/cypress-allure-plugin'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // return false
-    console.log(err)
+    // console.log(err)
+    return false
 })
