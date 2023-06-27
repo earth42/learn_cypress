@@ -1,13 +1,29 @@
 name: learn cypress
-on: [push]
+on: 
+  push:
+    branches: [ "master" ]
+
 jobs:
-  cypress-test-start:
-    runs-on: ubuntu-latest
+  cypress-test-run:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - run: npm install
+      - name: Checkout to corresponding branch
+        uses: actions/checkout@v3
       
-      - uses: cypress-io/github-action@v5.8.2
-      - run: |
-          npx cypress run --env allure=true
-          npm run reportNow
+        # Install NPM dependencies, cache them correctly
+      - name: Install dependencies
+        run: npm install
+      
+        # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          config-file: cypress.config.js
+          env: allure=true
+      
+      - name: check the results
+        uses: actions/upload-artifact@v3
+        with: 
+          name: allure-reports
+          path: test-allure-results
