@@ -11,12 +11,12 @@ describe('Check Center Login Status', () => {
 
       cy.get('.header').findcat('cat')
       
-      const catJump = () => {
-        cy.log('Cat is alive, and jumps for no reason')
-        console.log('Cat is alive, and jumps for no reason')
-        cy.exec('echo "Cat is alive, and jumps for no reason"')
-      }
-      cy.get('.header').findcat('cat', catJump)
+      // const catJump = () => {
+      //   cy.log('Cat is alive, and jumps for no reason')
+      //   console.log('Cat is alive, and jumps for no reason')
+      //   cy.exec('echo "Cat is alive, and jumps for no reason"')
+      // }
+      // cy.get('.header').findcat('cat', catJump)
 
       loginPage.clickLoginBtn()
       loginPage.waitQrCodeResOK()
