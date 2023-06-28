@@ -34,7 +34,7 @@ Cypress.Commands.add('findcat', { prevSubject: true }, (theBox, cat, catMoves) =
 	
 	theBox.find(cat)
 		.each(() => {
-			catChoose = catMoves || catJumps
+			const catChoose = catMoves || catJumps
 			catChoose()
 		})
 })
