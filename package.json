@@ -5,8 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "reportNow": "mochawesome-merge cypress/results/*.json > mochawesome.json && marge mochawesome.json && rm mochawesome.json",
-        "cypress": "cypress run --headless"
+        "reportNow": "mochawesome-merge cypress/results/*.json > mochawesome.json && marge mochawesome.json && rm mochawesome.json"
     },
     "keywords": [],
     "author": "",
