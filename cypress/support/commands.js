@@ -25,16 +25,16 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // A cypress custom command to get uncertain element
-Cypress.Commands.add('findcat', (cat, $inBox) => {
+Cypress.Commands.add('findcat', { prevSubject: true }, (theBox, cat, catMoves) => {
 	const catJumps = () => {
 		cy.log('Cat is alive, and jumps for no reason')
 		console.log('Cat is alive, and jumps for no reason')
 		cy.exec("echo 'Cat is dead'")
 	}
 	
-	$inBox.find(cat)
+	theBox.find(cat)
 		.each(() => {
-			//do something with it
-			catJumps()
+			catChoose = catMoves || catJumps
+			catChoose()
 		})
 })
