@@ -9,7 +9,10 @@ describe('Check Center Login Status', () => {
 
       cy.visit('https://center.robotemi.com/')
 
-      cy.get('.header').findcat('cat')
+      cy.get('.header button')
+        .then((inBox) => {
+          cy.findcat('cat', inBox)
+        })
       
       // const catJump = () => {
       //   cy.log('Cat is alive, and jumps for no reason')
