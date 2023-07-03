@@ -12,9 +12,6 @@ jobs:
             - name: Download Cypress
               run: | 
                 npm install
-                cat package.json
-                ls
-                npx cypress --version
 
             - name: Run Cypress
               continue-on-error: true

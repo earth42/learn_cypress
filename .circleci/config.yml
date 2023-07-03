@@ -1,0 +1,49 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.3
+  slack: circleci/slack@4.9.3
+
+executors:
+  cypress_docker:
+    docker:
+      - image: cypress/browsers:node16.16.0-chrome105-ff104-edge
+jobs:
+  start_test:
+    executor: cypress_docker
+    parameters:
+      org_name:
+        type: string
+        default: kenny_test
+
+    steps:
+      - checkout
+      - run:
+          name: install all plugins
+          command: |
+            npm install
+      - run:
+          name: Run tests         
+          command: |
+            npx cypress run
+      - store_test_results:
+          path: cypress/results/
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
+      - slack/notify:
+          event: pass
+          template: basic_success_1
+
+workflows:
+  version: 2
+  circle_start:
+    jobs:
+      - start_test:
+          context: 
+            - circle_slack
+          filters:
+            branches:
+              only: 
+                - circle_flow
+                - run_action
