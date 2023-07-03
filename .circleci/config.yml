@@ -41,7 +41,7 @@ workflows:
     jobs:
       - start_test:
           context: 
-            - circle_slack
+            - slack_notify
           filters:
             branches:
               only: 
