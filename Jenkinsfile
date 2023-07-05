@@ -1,25 +1,21 @@
 pipeline {
-  agent {
-    // this image provides everything needed to run Cypress
-    docker {
-      image 'cypress/base:18.14.1'
-    }
-  }
+  agent any
 
   stages {
-    stage('build and test') {
-      environment {
-        // we will be recording test results and video on Cypress dashboard
-        // to record we need to set an environment variable
-        // we can load the record key variable from credentials store
-        // see https://jenkins.io/doc/book/using/using-credentials/
-        // CYPRESS_RECORD_KEY = credentials('cypress-example-kitchensink-record-key')
-      }
+    stage('Build') {
+            steps {
+                echo 'Building..'
+                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: '19a4518b-b0ea-4bc0-bb5b-fcef72e4085a', url: 'git@github.com:earth42/learn_cypress.git']])
+                sh "npm install"
+            }
+        }
 
-      steps {
-        sh 'npm ci'
-        sh "npx cpyress run"
-      }
+    stage('Test') {
+        steps {
+            echo 'Testing..'
+            sh 'npx NO_COLOR=1 cypress run'
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+        }
     }
   }
 }
