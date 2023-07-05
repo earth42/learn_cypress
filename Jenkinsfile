@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  options { 
-    ansiColor('css') 
-  }
 
   stages {
     stage('Build') {
