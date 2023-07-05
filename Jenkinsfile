@@ -19,6 +19,7 @@ pipeline {
     stage('Test') {
         steps {
             echo 'Testing..'
+            sh "ls && pwd"
             sh "npx cpyress run"
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
         }
