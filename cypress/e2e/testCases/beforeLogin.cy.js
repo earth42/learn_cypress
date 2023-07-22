@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import BeforeLogin from "./beforeLogin.po"
+import BeforeLogin from "../pageObjects/beforeLogin.po"
 
 
 describe('Check Center Login Status', () => {
