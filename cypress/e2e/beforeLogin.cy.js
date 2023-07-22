@@ -1,18 +1,18 @@
 /// <reference types="cypress" />
-import TestSpec from "./spec.po"
+import BeforeLogin from "./beforeLogin.po"
 
 
 describe('Check Center Login Status', () => {
   it('This is a test case', function() {
-      const loginPage = new TestSpec
+      const beforeLoginPage = new BeforeLogin
       cy.log('This is spec cy itself')
 
-      cy.visit('https://center.robotemi.com/')
+      cy.visit('center.robotemi.com/')
 
       cy.get('.header')
         .findcat('button')
       
-      loginPage.clickLoginBtn()
-      loginPage.waitQrCodeResOK()
+      beforeLoginPage.clickLoginBtn()
+      beforeLoginPage.waitQrCodeResOK()
   })
 })
