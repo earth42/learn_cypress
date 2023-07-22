@@ -17,7 +17,7 @@ module.exports = defineConfig({
   env: {
     allure: true, 
     allureResultsPath: "allure-results",
-    apiUrl: "https://api.robotemi.com/api/"
+    apiUrl: "https://api.robotemi.com/api/v2/"
   },
   
   e2e: {
