@@ -21,6 +21,7 @@ import 'find-cat'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 Cypress.on('uncaught:exception', (err, runnable) => {
-    console.log(err)
-    // return false
+    if(err.message.includes('initZDesk is not defined')){
+        return false
+    }
 })

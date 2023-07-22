@@ -1,4 +1,4 @@
-class TestSpec {
+class BeforeLogin {
     constructor() {
         cy.intercept('https://api.robotemi.com/api/v2/webplatform/iam/generate-code')
             .as('qrCode')
@@ -17,4 +17,4 @@ class TestSpec {
     }
 }
 
-export default TestSpec;
+export default BeforeLogin;

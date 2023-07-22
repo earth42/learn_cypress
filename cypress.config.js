@@ -17,9 +17,11 @@ module.exports = defineConfig({
   env: {
     allure: true, 
     allureResultsPath: "allure-results",
+    apiUrl: "https://api.robotemi.com/api/v2/"
   },
   
   e2e: {
+    baseUrl: "https://center.robotemi.com/",
     setupNodeEvents(on, config) {
       // return require('@shelex/cypress-allure-plugin/writer')(on, config)
       allureWriter(on, config);
