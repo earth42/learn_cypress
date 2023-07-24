@@ -13,7 +13,7 @@ pipeline {
     stage('Test') {
         steps {
             echo 'Testing..'
-            sh 'npx NO_COLOR=1 cypress run'
+            sh 'NO_COLOR=1 npx cypress run'
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
         }
     }
