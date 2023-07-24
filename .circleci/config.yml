@@ -46,4 +46,3 @@ workflows:
             branches:
               only: 
                 - circle_flow
-                - run_action
